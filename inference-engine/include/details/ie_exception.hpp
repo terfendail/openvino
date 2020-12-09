@@ -77,12 +77,12 @@ public:
      * @return An exception description with a file name and file line
      */
     const char* what() const noexcept override {
-        if (errorDesc.empty() && exception_stream) {
+/*        if (errorDesc.empty() && exception_stream) {
             errorDesc = exception_stream->str();
 #ifndef NDEBUG
             errorDesc += "\n" + _file + ":" + std::to_string(_line);
 #endif
-        }
+        }*/
         return errorDesc.c_str();
     }
 
@@ -114,10 +114,10 @@ public:
                 return *this;
             }
         }
-        if (!exception_stream) {
+/*        if (!exception_stream) {
             exception_stream.reset(new std::stringstream());
         }
-        (*exception_stream) << arg;
+        (*exception_stream) << arg;*/
         return *this;
     }
 
